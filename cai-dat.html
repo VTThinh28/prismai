@@ -482,18 +482,11 @@ b.g { color: #5fd394; } b.w { color: #c3c8d8; } b.r { color: #ff8a80; }
       </svg>
       <div>
         <h1>Cài chương trình cho đèn</h1>
-        <p class="sub">Làm một lần cho mỗi mạch. Chọn đúng loại mạch thầy đang có</p>
+        <p class="sub">Làm một lần cho mỗi mạch ESP32</p>
       </div>
     </div>
     <a class="btn" href="./">Về trang điều khiển</a>
   </header>
-
-  <nav class="pick" aria-label="Chọn loại mạch">
-    <a href="#esp32"><b>Mạch ESP32</b><span>Có Bluetooth, điều khiển được bằng điện thoại. Cài một chạm ngay trên trang này.</span></a>
-    <a href="#uno"><b>Mạch Arduino UNO</b><span>Mạch trong bộ kit học tập. Không có Bluetooth, nối dây USB với laptop. Nạp bằng Arduino IDE.</span></a>
-  </nav>
-
-  <h2 class="sec" id="esp32">Mạch ESP32</h2>
 
   <article class="card">
     <h2>Cần chuẩn bị</h2>
@@ -583,95 +576,6 @@ b.g { color: #5fd394; } b.w { color: #c3c8d8; } b.r { color: #ff8a80; }
       <dd>Trên trang điều khiển, ở thẻ Vòng LED, chọn đúng số bóng của vòng. Ví dụ vòng 16 bóng mà để 8 bóng thì chỉ 8 bóng đầu sáng.</dd>
       <dt>Trang điều khiển không thấy đèn</dt>
       <dd>Bật Bluetooth của laptop. Để laptop cách đèn dưới 3 m. Đóng các tab khác đang nối với đèn. Nếu laptop không có Bluetooth, cắm cáp USB và bấm Nối dây USB.</dd>
-    </dl>
-  </article>
-
-  <h2 class="sec" id="uno">Mạch Arduino UNO</h2>
-
-  <article class="card">
-    <h2>Cần chuẩn bị</h2>
-    <ul class="list">
-      <li>Mạch Arduino UNO R3 và cáp USB đi kèm.</li>
-      <li>Vòng LED Neo Pixel (WS2812) 12 bóng. Vòng 8, 16 hay 24 bóng cũng chạy.</li>
-      <li>3 sợi dây cắm. Nếu vòng LED chưa có chân cắm thì phải hàn 3 sợi dây vào 3 ô DI, 5V, GND của vòng.</li>
-      <li>Laptop chạy Chrome hoặc Edge. Mạch UNO không có Bluetooth nên điện thoại không điều khiển được.</li>
-    </ul>
-  </article>
-
-  <article class="card">
-    <h2>Bước 1. Nối vòng LED vào mạch UNO (3 dây)</h2>
-    <div class="wire" role="img" aria-label="Sơ đồ nối dây: DI của LED vào chân số 6, GND của LED vào chân GND, 5V của LED vào chân 5V">
-      <svg viewBox="0 0 560 250" width="100%" aria-hidden="true">
-        <rect x="20" y="40" width="190" height="170" rx="10" fill="#1e2232" stroke="#3a4158"></rect>
-        <rect x="8" y="64" width="34" height="40" rx="4" fill="#3a4158"></rect>
-        <text x="26" y="124" class="lbl" text-anchor="middle">USB</text>
-        <text x="118" y="80" class="ttl" text-anchor="middle">Arduino UNO</text>
-        <rect x="70" y="104" width="70" height="26" rx="4" fill="#2a3044" stroke="#4a5272"></rect>
-        <text x="105" y="122" class="lbl" text-anchor="middle">ATmega328</text>
-        <circle cx="200" cy="150" r="6" fill="#5fd394"></circle><text x="186" y="154" class="pin" text-anchor="end">số 6</text>
-        <circle cx="200" cy="172" r="6" fill="#9aa1b8"></circle><text x="186" y="176" class="pin" text-anchor="end">GND</text>
-        <circle cx="200" cy="194" r="6" fill="#ff8a80"></circle><text x="186" y="198" class="pin" text-anchor="end">5V</text>
-        <circle cx="455" cy="125" r="80" fill="none" stroke="#3a4158" stroke-width="22"></circle>
-        <g fill="#ffaa3c"><circle cx="455.0" cy="45.0" r="6"></circle><circle cx="495.0" cy="55.7" r="6"></circle><circle cx="524.3" cy="85.0" r="6"></circle><circle cx="535.0" cy="125.0" r="6"></circle><circle cx="524.3" cy="165.0" r="6"></circle><circle cx="495.0" cy="194.3" r="6"></circle><circle cx="455.0" cy="205.0" r="6"></circle><circle cx="415.0" cy="194.3" r="6"></circle><circle cx="385.7" cy="165.0" r="6"></circle><circle cx="375.0" cy="125.0" r="6"></circle><circle cx="385.7" cy="85.0" r="6"></circle><circle cx="415.0" cy="55.7" r="6"></circle></g>
-        <text x="455" y="122" class="ttl" text-anchor="middle">Vòng LED</text>
-        <text x="455" y="142" class="lbl" text-anchor="middle">12 bóng</text>
-        <path d="M206 150 C 280 150, 300 150, 356 150" stroke="#5fd394" stroke-width="4" fill="none"></path>
-        <path d="M206 172 C 280 172, 300 166, 360 166" stroke="#9aa1b8" stroke-width="4" fill="none"></path>
-        <path d="M206 194 C 280 194, 300 182, 368 182" stroke="#ff8a80" stroke-width="4" fill="none"></path>
-        <text x="300" y="142" class="wl" text-anchor="middle">DI</text>
-        <text x="300" y="214" class="wl" text-anchor="middle">GND · 5V</text>
-      </svg>
-    </div>
-    <ul class="list">
-      <li><b class="g">Dây DI</b> (có vòng ghi IN, DIN) của vòng LED cắm vào <b>chân số 6</b>, ở hàng chân DIGITAL.</li>
-      <li><b class="w">Dây GND</b> cắm vào chân <b>GND</b>.</li>
-      <li><b class="r">Dây 5V</b> (có vòng ghi VCC) cắm vào chân <b>5V</b>, ở hàng chân POWER.</li>
-    </ul>
-    <p class="hint">Cấp điện cho mạch bằng cáp USB, cắm vào laptop hoặc củ sạc điện thoại. Đừng dùng pin 9V: pin hết rất nhanh và mạch nóng.</p>
-  </article>
-
-  <article class="card">
-    <h2>Bước 2. Nạp chương trình bằng Arduino IDE</h2>
-    <ol class="list">
-      <li>Tải Arduino IDE ở trang <b>arduino.cc/en/software</b> rồi cài vào laptop.</li>
-      <li>Tải tệp chương trình <a href="arduino-uno/prismai-uno.ino" download>prismai-uno.ino</a>, bấm đúp để mở. Arduino IDE hỏi tạo thư mục cho tệp thì bấm <b>OK</b>.</li>
-      <li>Vào <b>Tools → Manage Libraries</b>, gõ <b>Adafruit NeoPixel</b>, bấm <b>Install</b>.</li>
-      <li>Cắm mạch UNO vào laptop. Vào <b>Tools → Board → Arduino AVR Boards</b>, chọn <b>Arduino Uno</b>. Vào <b>Tools → Port</b>, chọn cổng COM vừa hiện ra.</li>
-      <li>Bấm nút mũi tên <b>Upload</b>. Thấy chữ <b>Done uploading</b> là xong. Vòng LED sáng màu vàng ấm.</li>
-    </ol>
-  </article>
-
-  <article class="card">
-    <h2>Bước 3. Điều khiển từ trang web</h2>
-    <ol class="list">
-      <li>Đóng Arduino IDE để nhường cổng USB cho trang web.</li>
-      <li>Mở <a href="./">trang điều khiển</a> bằng Chrome hoặc Edge trên laptop, bấm <b>Nối dây USB</b>, chọn cổng của mạch UNO.</li>
-      <li>Đèn tắt chừng 1 giây rồi sáng lại. Mạch UNO khởi động lại mỗi lần nối, chuyện này bình thường.</li>
-      <li>Thẻ <b>Vòng LED</b> tự chuyển sang 12 bóng. Vòng của thầy có số bóng khác thì bấm chọn lại.</li>
-      <li>Kéo thanh độ sáng. Đèn thật sáng tối theo là chạy đúng.</li>
-    </ol>
-  </article>
-
-  <article class="card">
-    <h2>Gắn thêm nút nhấn, núm vặn, còi (không bắt buộc)</h2>
-    <ul class="list">
-      <li><b>Nút nhấn</b> bật, tắt đèn: một chân cắm vào chân số 2, chân chéo góc cắm vào GND. Không phải sửa chương trình.</li>
-      <li><b>Chiết áp</b> làm núm vặn độ sáng: chân giữa cắm vào A0, hai chân ngoài cắm vào 5V và GND. Trong tệp chương trình, sửa dòng <b>CO_NUM_VAN</b> từ 0 thành 1 rồi nạp lại.</li>
-      <li><b>Còi</b> kêu khi hết giờ học: chân dương (+) cắm vào chân số 8, chân kia cắm vào GND. Sửa dòng <b>CO_COI</b> từ 0 thành 1 rồi nạp lại.</li>
-    </ul>
-  </article>
-
-  <article class="card">
-    <h2>Gặp lỗi với mạch UNO</h2>
-    <dl class="faq">
-      <dt>Tools → Port không có cổng nào</dt>
-      <dd>Đổi cáp USB khác. Mạch UNO dùng chip CH340 cần cài driver CH340, tải ở trang WCH.</dd>
-      <dt>Arduino IDE báo lỗi khi Upload</dt>
-      <dd>Kiểm lại Board đã chọn Arduino Uno và Port đúng cổng của mạch. Đóng tab trang điều khiển nếu đang nối dây USB.</dd>
-      <dt>Trang điều khiển báo không mở được cổng USB</dt>
-      <dd>Arduino IDE đang giữ cổng. Đóng Arduino IDE rồi bấm Nối dây USB lại.</dd>
-      <dt>Nạp xong mà vòng LED không sáng</dt>
-      <dd>Kiểm lại dây DI đã cắm đúng chân số 6 chưa, và dây vào chân DI chứ không phải DO của vòng LED.</dd>
     </dl>
   </article>
 </div>

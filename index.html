@@ -607,7 +607,7 @@ input[type="range"]::-moz-range-thumb {
   <footer class="foot">
     <div>
       <h3>Đèn nhận lệnh thế nào</h3>
-      <p>Trang web gửi lệnh qua Bluetooth hoặc dây USB tới mạch ESP32 hoặc Arduino UNO nằm trong đế đèn. Mạch đổi độ sáng các bóng trên vòng LED: độ sáng tỉ lệ thuận với số phần trăm trên thanh trượt.</p>
+      <p>Trang web gửi lệnh qua Bluetooth hoặc dây USB tới mạch ESP32 nằm trong đế đèn. Mạch đổi độ sáng các bóng trên vòng LED: độ sáng tỉ lệ thuận với số phần trăm trên thanh trượt.</p>
     </div>
     <div>
       <h3>AI nằm ở đâu</h3>
@@ -615,9 +615,9 @@ input[type="range"]::-moz-range-thumb {
     </div>
     <div>
       <h3>Dùng trên máy nào</h3>
-      <p>Chrome hoặc Edge trên laptop có Bluetooth, hoặc Chrome trên điện thoại Android. iPhone chỉ xem được đèn ảo vì Safari chưa cho trang web dùng Bluetooth. Mạch Arduino UNO không có Bluetooth, chỉ nối bằng dây USB với laptop.</p>
+      <p>Chrome hoặc Edge trên laptop có Bluetooth, hoặc Chrome trên điện thoại Android. iPhone chỉ xem được đèn ảo vì Safari chưa cho trang web dùng Bluetooth.</p>
     </div>
-    <div class="setup-link"><h3>Lắp đèn lần đầu</h3><p><a href="cai-dat.html">Cài chương trình cho mạch ESP32 hoặc Arduino UNO</a>, có sơ đồ nối dây.</p></div>
+    <div class="setup-link"><h3>Lắp đèn lần đầu</h3><p><a href="cai-dat.html">Cài chương trình cho mạch ESP32</a>, có sơ đồ nối dây.</p></div>
   </footer>
 </div>
 
@@ -845,7 +845,7 @@ input[type="range"]::-moz-range-thumb {
       setStatus('serial');
       log('Đã nối đèn qua dây USB', 'Kết nối');
       readSerial(port);
-      // Mạch Arduino UNO khởi động lại khi vừa nối, mất 1 đến 2 giây, nên hỏi trạng thái hai lần
+      // Mạch có thể khởi động lại khi vừa nối, mất 1 đến 2 giây, nên hỏi trạng thái hai lần
       setTimeout(() => queue('Q', '?'), 1500);
       setTimeout(() => queue('Q', '?'), 3200);
     } catch (e) {
