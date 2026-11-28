@@ -556,7 +556,7 @@ input[type="range"]::-moz-range-thumb {
           <button id="btnVoice" class="btn small" type="button">Bật micro</button>
         </div>
         <div class="heard" id="heard"><small>Câu vừa nghe</small><span id="heardText">Chưa nghe câu nào</span></div>
-        <p class="hint">Bấm thử một câu mẫu, trang làm như vừa nghe thầy nói:</p>
+        <p class="hint">Bấm thử một câu mẫu, trang làm như vừa nghe bạn nói:</p>
         <div class="say" id="sayList">
           <button type="button">bật đèn</button>
           <button type="button">tắt đèn</button>
@@ -793,7 +793,7 @@ input[type="range"]::-moz-range-thumb {
   async function connectBle() {
     note('');
     if (!navigator.bluetooth) {
-      note('Trình duyệt này chưa cho trang web dùng Bluetooth. Thầy mở trang bằng Chrome trên laptop hoặc điện thoại Android.');
+      note('Trình duyệt này chưa cho trang web dùng Bluetooth. Bạn mở trang bằng Chrome trên laptop hoặc điện thoại Android.');
       return;
     }
     setStatus('connecting');
@@ -821,8 +821,8 @@ input[type="range"]::-moz-range-thumb {
       log('Đã nối ' + link.name + ' qua Bluetooth', 'Kết nối');
     } catch (e) {
       resetLink();
-      if (e.name === 'NotFoundError') note('Chưa chọn được đèn. Thầy cắm điện cho đèn, để máy gần đèn rồi bấm Nối Bluetooth lại.');
-      else if (e.name === 'SecurityError' || e.name === 'NotAllowedError') note('Trang này không được dùng Bluetooth. Thầy mở trang trên GitHub Pages bằng Chrome.');
+      if (e.name === 'NotFoundError') note('Chưa chọn được đèn. Bạn cắm điện cho đèn, để máy gần đèn rồi bấm Nối Bluetooth lại.');
+      else if (e.name === 'SecurityError' || e.name === 'NotAllowedError') note('Trang này không được dùng Bluetooth. Bạn mở trang trên GitHub Pages bằng Chrome.');
       else note('Không nối được đèn: ' + e.message);
     }
   }
@@ -830,7 +830,7 @@ input[type="range"]::-moz-range-thumb {
   async function connectUsb() {
     note('');
     if (!navigator.serial) {
-      note('Trình duyệt này chưa cho trang web dùng cổng USB. Thầy dùng Chrome hoặc Edge trên máy tính.');
+      note('Trình duyệt này chưa cho trang web dùng cổng USB. Bạn dùng Chrome hoặc Edge trên máy tính.');
       return;
     }
     setStatus('connecting');
@@ -850,8 +850,8 @@ input[type="range"]::-moz-range-thumb {
       setTimeout(() => queue('Q', '?'), 3200);
     } catch (e) {
       resetLink();
-      if (e.name === 'NotFoundError') note('Chưa chọn cổng nào. Thầy cắm cáp USB vào mạch rồi bấm Nối dây USB lại.');
-      else if (e.name === 'SecurityError' || e.name === 'NotAllowedError') note('Trang này không được dùng cổng USB. Thầy mở trang trên GitHub Pages bằng Chrome.');
+      if (e.name === 'NotFoundError') note('Chưa chọn cổng nào. Bạn cắm cáp USB vào mạch rồi bấm Nối dây USB lại.');
+      else if (e.name === 'SecurityError' || e.name === 'NotAllowedError') note('Trang này không được dùng cổng USB. Bạn mở trang trên GitHub Pages bằng Chrome.');
       else note('Không mở được cổng USB: ' + e.message + '. Nếu đang mở Arduino IDE thì đóng lại rồi thử.');
     }
   }
@@ -1266,7 +1266,7 @@ input[type="range"]::-moz-range-thumb {
   }
   async function startHand() {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      handMsg('Trình duyệt này không mở được camera. Thầy dùng Chrome trên laptop hoặc điện thoại.');
+      handMsg('Trình duyệt này không mở được camera. Bạn dùng Chrome trên laptop hoặc điện thoại.');
       return;
     }
     const btn = $('#btnHand');
@@ -1277,7 +1277,7 @@ input[type="range"]::-moz-range-thumb {
     } catch (e) {
       btn.disabled = false;
       handMsg(e.name === 'NotAllowedError'
-        ? (inFrame ? 'Bản xem thử không được mở camera. Mở trang trên GitHub Pages bằng Chrome để dùng bàn tay ra lệnh.' : 'Camera đang bị chặn. Thầy bấm biểu tượng bên trái thanh địa chỉ, cho phép Camera rồi bấm lại.')
+        ? (inFrame ? 'Bản xem thử không được mở camera. Mở trang trên GitHub Pages bằng Chrome để dùng bàn tay ra lệnh.' : 'Camera đang bị chặn. Bạn bấm biểu tượng bên trái thanh địa chỉ, cho phép Camera rồi bấm lại.')
         : 'Không mở được camera: ' + e.message);
       return;
     }
@@ -1289,7 +1289,7 @@ input[type="range"]::-moz-range-thumb {
       try { hand.rec = await loadRecognizer(); }
       catch (e) {
         stopHand();
-        handMsg('Không tải được mô hình AI (' + e.message + '). Thầy kiểm tra mạng Internet rồi bấm lại.');
+        handMsg('Không tải được mô hình AI (' + e.message + '). Bạn kiểm tra mạng Internet rồi bấm lại.');
         return;
       }
     }
@@ -1385,11 +1385,11 @@ input[type="range"]::-moz-range-thumb {
     $('#heardText').textContent = '“' + text + '”';
     const done = runSpeech(text, src);
     if (done.length) voiceMsg('Đã làm: ' + done.join(', ') + '.');
-    else voiceMsg('Chưa hiểu câu này. Thầy thử: “bật đèn”, “sáng năm mươi”, “màu xanh dương”, “bắt đầu học”.');
+    else voiceMsg('Chưa hiểu câu này. Bạn thử: “bật đèn”, “sáng năm mươi”, “màu xanh dương”, “bắt đầu học”.');
   }
   function startVoice() {
     if (!SR) {
-      voiceMsg('Trình duyệt này chưa nhận giọng nói. Thầy dùng Chrome trên laptop hoặc điện thoại Android.');
+      voiceMsg('Trình duyệt này chưa nhận giọng nói. Bạn dùng Chrome trên laptop hoặc điện thoại Android.');
       return;
     }
     const rec = new SR();
@@ -1409,8 +1409,8 @@ input[type="range"]::-moz-range-thumb {
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
         voice.on = false;
         updVoice();
-        voiceMsg(inFrame ? 'Bản xem thử không được dùng micro. Bấm các câu mẫu bên trên để thử, hoặc mở trang trên GitHub Pages.' : 'Micro đang bị chặn. Thầy bấm biểu tượng bên trái thanh địa chỉ, cho phép Micro rồi bấm lại.');
-      } else if (e.error === 'network') voiceMsg('Nhận giọng nói cần Internet. Thầy kiểm tra mạng rồi thử lại.');
+        voiceMsg(inFrame ? 'Bản xem thử không được dùng micro. Bấm các câu mẫu bên trên để thử, hoặc mở trang trên GitHub Pages.' : 'Micro đang bị chặn. Bạn bấm biểu tượng bên trái thanh địa chỉ, cho phép Micro rồi bấm lại.');
+      } else if (e.error === 'network') voiceMsg('Nhận giọng nói cần Internet. Bạn kiểm tra mạng rồi thử lại.');
       else if (e.error !== 'no-speech' && e.error !== 'aborted') voiceMsg('Micro báo lỗi: ' + e.error);
     };
     rec.onend = () => { if (voice.on) { try { rec.start(); } catch (e) {} } };
@@ -1418,7 +1418,7 @@ input[type="range"]::-moz-range-thumb {
     voice.on = true;
     try { rec.start(); } catch (e) {}
     updVoice();
-    voiceMsg('Đang nghe. Thầy nói một lệnh, ví dụ “sáng năm mươi”.');
+    voiceMsg('Đang nghe. Bạn nói một lệnh, ví dụ “sáng năm mươi”.');
   }
   function stopVoice() {
     voice.on = false;
